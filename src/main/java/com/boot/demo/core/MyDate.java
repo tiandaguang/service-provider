@@ -5,20 +5,20 @@ import java.util.Date;
 
 public class MyDate {
     public static void main(String[] args) {
-        // Calendar cal = Calendar.getInstance();
-        // cal.set(Calendar.HOUR, 0);
-        // cal.set(Calendar.SECOND, 0);
-        // cal.set(Calendar.MINUTE, 0);
-        // cal.set(Calendar.MILLISECOND, 0);
-        // System.out.println("1111111111111===" + cal.getTimeInMillis());
-        // System.out.println("2222222222222==" + System.currentTimeMillis());
-        // System.out
-        // .println("3333333333333=="
-        // + ((cal.getTimeInMillis() - System.currentTimeMillis()) / 1000 / 60 /
-        // 60));
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.HOUR, 0);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+        System.out.println("1111111111111===" + cal.getTimeInMillis());
+        System.out.println("2222222222222==" + System.currentTimeMillis());
+        System.out
+                .println("3333333333333=="
+                        + ((cal.getTimeInMillis() - System.currentTimeMillis()) / 1000 / 60 /
+                        60));
 
         /******* 获得当前日期到凌晨24点的秒数,用于存储redis作为当天的时效 **********/
-        final Calendar cal = Calendar.getInstance();
+//        final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) + 1);
         cal.set(Calendar.HOUR_OF_DAY, 0);
         cal.set(Calendar.MINUTE, 0);
