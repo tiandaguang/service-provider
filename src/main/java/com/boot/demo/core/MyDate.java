@@ -17,7 +17,7 @@ public class MyDate {
                         + ((cal.getTimeInMillis() - System.currentTimeMillis()) / 1000 / 60 /
                         60));
 
-        /******* 获得当前日期到凌晨24点的秒数,用于存储redis作为当天的时效 **********/
+        /*******       获得当前日期到凌晨24点的秒数,用于存储redis作为当天的时效     **********/
 //        final Calendar cal = Calendar.getInstance();
         cal.set(Calendar.DAY_OF_MONTH, cal.get(Calendar.DAY_OF_MONTH) + 1);
         cal.set(Calendar.HOUR_OF_DAY, 0);
