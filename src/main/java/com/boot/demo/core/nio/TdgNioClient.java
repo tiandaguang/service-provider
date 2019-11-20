@@ -68,7 +68,6 @@ public class TdgNioClient {
                     handle(key);
                     iterator.remove();
                 }
-
             }
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -128,9 +127,6 @@ public class TdgNioClient {
         byteBuffer.put(req);
         byteBuffer.flip();
         sc.write(byteBuffer);
-        // if (!byteBuffer.hasRemaining()) {
-        // System.out.println("Send successed : " + data);
-        // }
     }
 
     public static void main(String[] args) {
