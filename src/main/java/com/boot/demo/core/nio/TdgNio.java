@@ -5,6 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
+import java.nio.channels.FileChannel;
 
 /**
  * @DATE 2019/11/19 14:15
@@ -76,50 +77,50 @@ public class TdgNio {
 
     public static void main(String[] args) {
         readStrAndWrite("1234432112344321", "E:/eee.txt");
-//        ByteBuffer buffer = ByteBuffer.allocate(1024);
-//        RandomAccessFile aFile = null;
-//        RandomAccessFile bFile = null;
-//        try {
-//            aFile = new RandomAccessFile("D:/nio.txt", "rw");
-//            bFile = new RandomAccessFile("D:/aa.txt", "rw");
-//
-//            FileChannel channel = aFile.getChannel();
-//
-//            int read = channel.read(buffer);
-//            while (read != -1) {
-////                System.out.println("flip前limit-->" + buffer.limit());
-////                System.out.println("flip前position-->" + buffer.position());
-//                buffer.flip();
-////                System.out.println("flip后limit-->" + buffer.limit());
-////                System.out.println("flip后position-->" + buffer.position());
-//                if (buffer.hasRemaining()) {
-//                    bFile.write((char) buffer.get());
-//                }
-//
-////                System.out.println("compact前limit-->" + buffer.limit());
-////                System.out.println("compact前position-->" + buffer.position());
-//                buffer.compact();
-////                System.out.println("compact后 limit-->" + buffer.limit());
-////                System.out.println("compact后 position-->" + buffer.position());
-//                read = channel.read(buffer);
-//            }
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            try {
-//                if (!buffer.hasRemaining()) {
-//                    buffer = null;
-//                }
-//                if (aFile != null) {
-//                    aFile.close();
-//                }
-//                if (bFile != null) {
-//                    bFile.close();
-//                }
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        ByteBuffer buffer = ByteBuffer.allocate(1024);
+        RandomAccessFile aFile = null;
+        RandomAccessFile bFile = null;
+        try {
+            aFile = new RandomAccessFile("D:/nio.txt", "rw");
+            bFile = new RandomAccessFile("D:/aa.txt", "rw");
+
+            FileChannel channel = aFile.getChannel();
+
+            int read = channel.read(buffer);
+            while (read != -1) {
+//                System.out.println("flip前limit-->" + buffer.limit());
+//                System.out.println("flip前position-->" + buffer.position());
+                buffer.flip();
+//                System.out.println("flip后limit-->" + buffer.limit());
+//                System.out.println("flip后position-->" + buffer.position());
+                if (buffer.hasRemaining()) {
+                    bFile.write((char) buffer.get());
+                }
+
+//                System.out.println("compact前limit-->" + buffer.limit());
+//                System.out.println("compact前position-->" + buffer.position());
+                buffer.compact();
+//                System.out.println("compact后 limit-->" + buffer.limit());
+//                System.out.println("compact后 position-->" + buffer.position());
+                read = channel.read(buffer);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (!buffer.hasRemaining()) {
+                    buffer = null;
+                }
+                if (aFile != null) {
+                    aFile.close();
+                }
+                if (bFile != null) {
+                    bFile.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
