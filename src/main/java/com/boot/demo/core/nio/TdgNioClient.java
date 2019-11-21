@@ -65,7 +65,10 @@ public class TdgNioClient {
                 Iterator<SelectionKey> iterator = selectedKeys.iterator();
                 while (iterator.hasNext()) {
                     SelectionKey key = iterator.next();
-                    handle(key);
+                    //检测key是否有效
+                    if(key.isValid()){
+                        handle(key);
+                    }
                     iterator.remove();
                 }
             }
