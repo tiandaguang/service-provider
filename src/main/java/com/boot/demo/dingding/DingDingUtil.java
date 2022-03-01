@@ -1,6 +1,5 @@
 package com.boot.demo.dingding;
 
-import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -42,7 +41,7 @@ public class DingDingUtil {
             Mac mac = Mac.getInstance("HmacSHA256");
             mac.init(new SecretKeySpec(secret.getBytes("UTF-8"), "HmacSHA256"));
             byte[] signData = mac.doFinal(sign.getBytes("UTF-8"));
-            sign = URLEncoder.encode(new String(Base64.encodeBase64(signData)), "UTF-8");
+//            sign = URLEncoder.encode(new String(Base64.encodeBase64(signData)), "UTF-8");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (InvalidKeyException e) {
