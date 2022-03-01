@@ -1,6 +1,8 @@
 package com.boot.demo.utils.message;
 
 
+import org.apache.commons.lang3.StringUtils;
+
 public class HttpSendUtils {
 
 //    public static String send(String url, Map<String, String> mapHeader,
@@ -17,4 +19,8 @@ public class HttpSendUtils {
 //                "UTF-8");
 //        return result;
 //    }
+
+    public static void main(String[] args) {
+        System.out.println(StringUtils.isEmpty("aaa"));
+    }
 }
