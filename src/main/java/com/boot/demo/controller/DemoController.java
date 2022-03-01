@@ -1,6 +1,7 @@
 package com.boot.demo.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.boot.demo.stream.function.Teacher;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -62,6 +63,10 @@ public class DemoController {
         log.info("可以用了！！！");
         Map<String, Object> mp = new HashMap<>();
         mp.put("code", 100);
+        Teacher teacher = Teacher.builder()
+                .name("tianda").build();
+        mp.put("Teacher", teacher);
+
         return JSON.toJSONString(mp);
     }
 }

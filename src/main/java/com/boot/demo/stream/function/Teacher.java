@@ -1,23 +1,19 @@
 package com.boot.demo.stream.function;
 
-class Teacher {
+import lombok.*;
+
+import java.io.Serializable;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class Teacher implements Serializable {
+
+    private static final long serialVersionUID = 2083114923510347064L;
+
     private String name;
 
-    public Teacher() {
-    }
-
-    public Teacher(String name) {
-        super();
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     @Override
     public String toString() {
