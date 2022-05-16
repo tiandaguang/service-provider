@@ -1,5 +1,5 @@
 server:
-  port: 8090
+  port: 8070
 
 
 dubbo:
@@ -15,3 +15,6 @@ dubbo:
     id: etc-highway-tdg
   application:
     name: etc-highway-tdg
+
+yijipay:
+  partnerId: 20140411020055684571
