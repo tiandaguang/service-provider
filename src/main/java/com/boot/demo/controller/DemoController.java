@@ -1,9 +1,10 @@
 package com.boot.demo.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.boot.demo.stream.function.Teacher;
+import com.yiji.openapi.tool.YijifuGateway;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,6 +12,8 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
+
+//import com.boot.demo.stream.function.Teacher;
 
 /**
  * @DATE 2019/11/4 20:33
@@ -24,7 +27,10 @@ public class DemoController {
 
     @Autowired
     private RestTemplate restTemplate;
+    private static String key = "55013b3352*************b24ed4303";
 
+    @Value("${server.port}")
+    private String partnerId;
 
 //    @Autowired
 //    private EtcMonitorMessageService monitorMessageHandlerImpl;
@@ -63,10 +69,15 @@ public class DemoController {
         log.info("可以用了！！！");
         Map<String, Object> mp = new HashMap<>();
         mp.put("code", 100);
-        Teacher teacher = Teacher.builder()
-                .name("tianda").build();
-        mp.put("Teacher", teacher);
+//        Teacher teacher = Teacher.builder()
+//                .name("tianda").build();
+//        mp.put("Teacher", teacher);
 
+        //字符串请求签名
+        log.info("partnerId====:{}", partnerId);
+        String waitSignStr = "age=28&name=wck";
+        String strSign = YijifuGateway.getOpenApiClientService().sign(waitSignStr, key);
+        log.info("字符串签名{}", strSign);
         return JSON.toJSONString(mp);
     }
 }

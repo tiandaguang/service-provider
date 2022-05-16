@@ -1,4 +1,4 @@
-package com.boot.demo.yjf;
+package com.boot.demo.yjf.test;
 
 import com.yiji.openapi.tool.YijifuGateway;
 
