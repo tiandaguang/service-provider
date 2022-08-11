@@ -1,14 +1,19 @@
 package com.boot.demo.controller;
 
-import com.yiji.openapi.tool.YijifuGateway;
-import com.yiji.openapi.tool.fastjson.JSONObject;
+import com.alibaba.fastjson.JSON;
+import com.boot.demo.core.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -66,8 +71,13 @@ public class DemoController {
 //        return JsonResponse.fail("接收rest请求成功");
 //    }
 
-    @PostMapping("send")
-    public String send() throws Exception {
+    @PostMapping(path = "send", produces = MediaType.APPLICATION_JSON_VALUE)
+    public String send(@Valid @RequestBody User user, BindingResult result) throws Exception {
+        log.info("hasErrors=={}", result.getAllErrors());
+
+        for (ObjectError error : result.getAllErrors()) {
+            log.info("ssss:{}", error.getDefaultMessage());
+        }
         log.info("可以用了！！！");
         Map<String, Object> mp = new HashMap<>();
         mp.put("code", 100);
@@ -78,10 +88,11 @@ public class DemoController {
 //        log.info("partnerId==:{}", partnerId);
 //        log.info("partnerId=222=:{}", jyfPro.getPartnerId());
 
-        //字符串请求签名
-        String waitSignStr = "age=28&name=wck";
-        String strSign = YijifuGateway.getOpenApiClientService().sign(waitSignStr, key);
-        System.out.println("字符串签名:" + strSign);
-        return JSONObject.toJSONString(mp);
+//        //字符串请求签名
+//        String waitSignStr = "age=28&name=wck";
+//        String strSign = YijifuGateway.getOpenApiClientService().sign(waitSignStr, key);
+//        System.out.println("字符串签名:" + strSign);
+//        return JSONObject.toJSONString(mp);
+        return JSON.toJSONString(mp);
     }
 }
