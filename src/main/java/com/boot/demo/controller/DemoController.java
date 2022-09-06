@@ -1,6 +1,7 @@
 package com.boot.demo.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.boot.demo.core.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,11 @@ import java.util.Map;
 @RequestMapping("demo")
 @Slf4j
 public class DemoController {
+    @NacosValue(value = "${useLocalCache:false}", autoRefreshed = true)
+    private boolean useLocalCache;
+
+    @NacosValue(value = "${name:tdg}", autoRefreshed = true)
+    private String name;
 
     @Autowired
     private RestTemplate restTemplate;
@@ -78,9 +84,9 @@ public class DemoController {
         for (ObjectError error : result.getAllErrors()) {
             log.info("ssss:{}", error.getDefaultMessage());
         }
-        log.info("可以用了！！！");
+        log.info("可以用了！！！---useLocalCache:{}", useLocalCache);
         Map<String, Object> mp = new HashMap<>();
-        mp.put("code", 100);
+        mp.put("code", name);
 //        Teacher teacher = Teacher.builder()
 //                .name("tianda").build();
 //        mp.put("Teacher", teacher);

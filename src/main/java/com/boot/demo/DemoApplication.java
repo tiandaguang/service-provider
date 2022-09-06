@@ -1,5 +1,7 @@
 package com.boot.demo;
 
+import com.alibaba.nacos.spring.context.annotation.config.EnableNacosConfig;
+import com.alibaba.nacos.spring.context.annotation.discovery.EnableNacosDiscovery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,6 +12,9 @@ import org.springframework.web.client.RestTemplate;
 @SpringBootApplication
 //@Import(value= com.yiji.openapi.sdk.YijiPayClient.class)
 //@ImportResource(locations = {"classpath*:/*-.xml"})
+//@NacosPropertySource(dataId = "example", autoRefreshed = true)
+@EnableNacosConfig
+@EnableNacosDiscovery
 public class DemoApplication {
     // 启动的时候要注意，由于我们在controller中注入了RestTemplate，所以启动的时候需要实例化该类的一个实例
     @Autowired
