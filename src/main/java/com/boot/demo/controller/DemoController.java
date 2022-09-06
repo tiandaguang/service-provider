@@ -5,13 +5,12 @@ import com.alibaba.nacos.api.config.annotation.NacosValue;
 import com.boot.demo.core.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.http.MediaType;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
 import javax.validation.Valid;
@@ -26,10 +25,11 @@ import java.util.Map;
  * @Author Tian Daguang
  **/
 @RestController
-@RequestMapping("demo")
+@RequestMapping("provider")
 @Slf4j
+@RefreshScope
 public class DemoController {
-    @NacosValue(value = "${useLocalCache:false}", autoRefreshed = true)
+    @Value("${useLocalCache:false}")
     private boolean useLocalCache;
 
     @NacosValue(value = "${name:tdg}", autoRefreshed = true)
@@ -101,4 +101,11 @@ public class DemoController {
 //        return JSONObject.toJSONString(mp);
         return JSON.toJSONString(mp);
     }
+
+
+    @RequestMapping(value = "/echo/{string}", method = RequestMethod.GET)
+    public String echo(@PathVariable String string) {
+        return "Hello Nacos Discovery " + string;
+    }
+
 }
