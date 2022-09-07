@@ -95,7 +95,7 @@ public class DemoController {
 //        log.info("partnerId=222=:{}", jyfPro.getPartnerId());
 
 //        //字符串请求签名
-//        String waitSignStr = "age=28&name=wck";
+//        String waitSignStr = "agegit=28&name=wck";
 //        String strSign = YijifuGateway.getOpenApiClientService().sign(waitSignStr, key);
 //        System.out.println("字符串签名:" + strSign);
 //        return JSONObject.toJSONString(mp);
