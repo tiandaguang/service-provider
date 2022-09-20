@@ -1,8 +1,9 @@
-
 spring:
   profiles:
     active: nacos
 
+server:
+  port: 8070
 
 logging:
   level:
