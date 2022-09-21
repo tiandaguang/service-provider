@@ -34,20 +34,6 @@ public class DemoController {
     private RestTemplate restTemplate;
     private static String key = "55013b3352*************b24ed4303";
 
-    //    @PostMapping(path = "send", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public String send(@Valid @RequestBody User user, BindingResult result) throws Exception {
-//        log.info("hasErrors=={}", result.getAllErrors());
-//
-//        for (ObjectError error : result.getAllErrors()) {
-//            log.info("ssss:{}", error.getDefaultMessage());
-//        }
-//        log.info("可以用了！！！---useLocalCache:{}", useLocalCache);
-//        Map<String, Object> mp = new HashMap<>();
-//        mp.put("code", name);
-//
-//        return JSON.toJSONString(mp);
-//    }
-//    @PostMapping(path = "send", produces = MediaType.APPLICATION_JSON_VALUE)
     @GetMapping(path = "send")
     public String send() throws Exception {
 
