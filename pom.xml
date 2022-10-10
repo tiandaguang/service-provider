@@ -61,88 +61,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!--&lt;!&ndash;调用短信发送RPC &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>com.etc</groupId>-->
-            <!--<artifactId>etc-manage-rpc-api</artifactId>-->
-            <!--<version>2.2.0</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-data-redis</artifactId>-->
-            <!--<version>2.0.5.RELEASE</version>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>joda-time</groupId>-->
-            <!--<artifactId>joda-time</artifactId>-->
-        <!--</dependency>-->
 
-        <!--&lt;!&ndash;对外rpc接口 &ndash;&gt;-->
-        <!--<dependency>-->
-            <!--<groupId>etc.highway.rpc.api</groupId>-->
-            <!--<artifactId>etc-highway-rpc-api</artifactId>-->
-            <!--<version>2.2.0</version>-->
-            <!--<exclusions>-->
-                <!--<exclusion>-->
-                    <!--<artifactId>dubbo</artifactId>-->
-                    <!--<groupId>com.alibaba</groupId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<artifactId>fastjson</artifactId>-->
-                    <!--<groupId>com.alibaba</groupId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<artifactId>commons-beanutils</artifactId>-->
-                    <!--<groupId>commons-beanutils</groupId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<artifactId>swagger-annotations</artifactId>-->
-                    <!--<groupId>io.swagger</groupId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<artifactId>commons-logging</artifactId>-->
-                    <!--<groupId>commons-logging</groupId>-->
-                <!--</exclusion>-->
-                <!--<exclusion>-->
-                    <!--<artifactId>commons-lang</artifactId>-->
-                    <!--<groupId>commons-lang</groupId>-->
-                <!--</exclusion>-->
-            <!--</exclusions>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok
-        spring-boot
-        <dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>nacos-discovery-spring-boot-starter</artifactId>
-            <version>0.2.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>nacos-config-spring-boot-starter</artifactId>
-            <version>0.2.2</version>
-        </dependency>
-        -->
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-            <version>2.2.0.RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
-            <version>2.2.0.RELEASE</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.16.16</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-            <version>2.2.7.RELEASE</version>
-        </dependency>
+
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus</artifactId>
@@ -170,28 +96,17 @@
             <artifactId>joda-time</artifactId>
             <version>2.9.4</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.yiji</groupId>-->
-            <!--<artifactId>core</artifactId>-->
-            <!--<version>1.1.1</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${project.basedir}/lib/openapi-sdk-core-1.5.4.20190410.jar</systemPath>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.yiji</groupId>-->
-            <!--<artifactId>message</artifactId>-->
-            <!--<version>1.1.1</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${project.basedir}/lib/openapi-sdk-message-1.5.4.20190410.jar</systemPath>-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.yiji</groupId>-->
-            <!--<artifactId>tool</artifactId>-->
-            <!--<version>1.1.1</version>-->
-            <!--<scope>system</scope>-->
-            <!--<systemPath>${project.basedir}/lib/yiji-openapi-tool-1.0.20190410.jar</systemPath>-->
-        <!--</dependency>-->
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>1.1.13</version>
+        </dependency>
+
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>

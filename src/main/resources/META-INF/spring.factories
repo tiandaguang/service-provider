@@ -1,1 +1,0 @@
-#org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.yiji.openapi.sdk.YijiPayClient,com.yiji.openapi.sdk.HttpApiServiceClient

@@ -1,11 +1,8 @@
 package com.boot.demo.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.nacos.api.config.annotation.NacosValue;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 
@@ -22,13 +19,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("provider")
 @Slf4j
-@RefreshScope
 public class DemoController {
-    @Value("${useLocalCache:false}")
-    private boolean useLocalCache;
-
-    @NacosValue(value = "${name:tdg}", autoRefreshed = true)
-    private String name;
 
     @Autowired
     private RestTemplate restTemplate;
@@ -37,9 +28,9 @@ public class DemoController {
     @GetMapping(path = "send")
     public String send() throws Exception {
 
-        log.info("可以用了！！！---useLocalCache:{}", useLocalCache);
+        log.info("可以用了！！！");
         Map<String, Object> mp = new HashMap<>();
-        mp.put("code", name);
+        mp.put("code", "tdg");
 
         return JSON.toJSONString(mp);
     }
