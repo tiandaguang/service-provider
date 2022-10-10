@@ -1,15 +1,12 @@
 package com.boot.demo.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.boot.demo.service.TradeBillService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.annotation.Resource;
 
-//import com.boot.demo.stream.function.Teacher;
 
 /**
  * @DATE 2019/11/4 20:33
@@ -21,18 +18,14 @@ import java.util.Map;
 @Slf4j
 public class DemoController {
 
-    @Autowired
-    private RestTemplate restTemplate;
-    private static String key = "55013b3352*************b24ed4303";
+    @Resource
+    private TradeBillService tradeBillService;
 
-    @GetMapping(path = "send")
-    public String send() throws Exception {
 
+    @GetMapping(path = "send/{id}")
+    public String send(@PathVariable Long id) throws Exception {
         log.info("可以用了！！！");
-        Map<String, Object> mp = new HashMap<>();
-        mp.put("code", "tdg");
-
-        return JSON.toJSONString(mp);
+        return JSON.toJSONString(tradeBillService.getById(id));
     }
 
 
