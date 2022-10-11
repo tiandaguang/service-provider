@@ -5,6 +5,7 @@ import com.boot.demo.entity.TradeBill;
 import com.boot.demo.service.TradeBillService;
 import com.boot.demo.utils.UUIDUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.RandomUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -38,10 +39,11 @@ public class DemoController {
         log.info("可以用了！！！");
         TradeBill bill = new TradeBill();
         bill.setBusDate("2022-06-30");
+        bill.setId(RandomUtils.nextLong(1L, 100L));
         bill.setMerchantNo(UUIDUtil.generate());
         bill.setTradeAmounts(new BigDecimal("10.11"));
         bill.setCreateTime(new Date());
-        tradeBillService.save(bill);
+        tradeBillService.saveOrUpdate(bill);
     }
 
 
