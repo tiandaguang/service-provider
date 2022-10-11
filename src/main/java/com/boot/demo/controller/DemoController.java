@@ -30,6 +30,7 @@ public class DemoController {
     @GetMapping(path = "send/{id}")
     public String send(@PathVariable Long id) throws Exception {
         log.info("可以用了！！！");
+
         return JSON.toJSONString(tradeBillService.list());
     }
 
