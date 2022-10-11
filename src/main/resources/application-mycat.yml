@@ -1,8 +1,9 @@
 spring:
   datasource:
 #    type: com.alibaba.druid.pool.DruidDataSource
-    username: root
-    password: 123456
+    ##对用 mycat/conf  server.xml中的 	<user name="root1"> 节点
+    username: root1
+    password: 1234567
 #    url: jdbc:mysql://127.0.0.1:8066/test?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
     url: jdbc:mysql://127.0.0.1:8066/test
     driver-class-name: com.mysql.jdbc.Driver
